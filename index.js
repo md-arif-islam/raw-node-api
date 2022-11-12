@@ -5,11 +5,11 @@
  * Date: 12 Nov 2022
  */
 
-// Dependencies
+// dependencies
 const http = require("http");
-const url = require("url");
+const { handleReqRes } = require("./helpers/handleReqRes");
 
-//  app object - module scaffolding
+// app object - module scaffolding
 const app = {};
 
 // configuration
@@ -21,23 +21,12 @@ app.config = {
 app.createServer = () => {
   const server = http.createServer(app.handleReqRes);
   server.listen(app.config.port, () => {
-    console.log(`listening port on ${app.config.port}`);
+    console.log(`listening to port ${app.config.port}`);
   });
 };
 
-app.handleReqRes = (req, res) => {
-  // request handle
-  const parsedUrl = url.parse(req.url, true);
-  const path = parsedUrl.pathname;
-  const trimmedPath = path.replace(/^\/+|\/+$/g, "");
-  const method = req.method.toLowerCase();
-  const queryStringObject = parsedUrl.query;
-  const headersObject = req.headers;
+// handle Request Response
+app.handleReqRes = handleReqRes;
 
-  // response handle
-  res.end("Hello Programmers");
-};
-
-//start server
-
+// start the server
 app.createServer();
