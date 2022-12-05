@@ -9,9 +9,22 @@
 const http = require("http");
 const { handleReqRes } = require("./helpers/handleReqRes");
 const environment = require("./helpers/environments");
+const data = require("./lib/data");
 
 // app object - module scaffolding
 const app = {};
+
+// testing filesystem
+// @TODO: Pore muche dibo
+
+data.create(
+  "test",
+  "newFile",
+  { name: "Bangladesh", language: "bangla" },
+  (err) => {
+    console.log(err);
+  }
+);
 
 // configuration
 app.config = {
