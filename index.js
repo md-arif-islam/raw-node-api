@@ -17,14 +17,9 @@ const app = {};
 // testing filesystem
 // @TODO: Pore muche dibo
 
-data.create(
-  "test",
-  "newFile",
-  { name: "Bangladesh", language: "bangla" },
-  (err) => {
-    console.log(err);
-  }
-);
+data.delete("test", "newFile", (err) => {
+  console.log(err);
+});
 
 // configuration
 app.config = {
