@@ -1,18 +1,19 @@
 /*
  * Title: Sample Handler
- * Description:
+ * Description: Sample Handler
  * Author: MD Arif Islam
- * Date: 12 Nov 2022
+ * Date: Jan 15, 2023
+ *
  */
-
+// module scaffolding
 const handler = {};
 
 handler.sampleHandler = (requestProperties, callback) => {
-  console.log(requestProperties);
+    console.log(requestProperties);
 
-  callback(200, {
-    message: "This is a sample url",
-  });
+    callback(200, {
+        message: 'This is a sample url',
+    });
 };
 
 module.exports = handler;
